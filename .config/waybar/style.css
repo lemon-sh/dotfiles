@@ -1,0 +1,55 @@
+@define-color background rgba(0, 0, 0, 0.7);
+@define-color widget-background #462941;
+@define-color widget-foreground #feebee;
+@define-color button-hover #7D3D52;
+@define-color button-active #8E4057;
+
+* {
+    font-family: "Cozette";
+    letter-spacing: -1px;
+}
+
+.modules-right {
+    margin: 1em 1em 0 0;
+    padding: 0.5em;
+    background-color: @background;
+    border-radius: 0.5em;
+}
+
+.modules-right label, .modules-right box {
+    background-color: @widget-background;
+    color: @widget-foreground;
+    border-radius: 0.25em;
+    padding: 0 1em;
+}
+
+.modules-right label#clock {
+    background-color: @button-hover;
+}
+
+.modules-left {
+    border-radius: 0.5em;
+    background-color: @background;
+    margin: 1em 0 0 1em;
+    padding: 0.5em 1em 0.5em 0.5em;
+}
+
+#workspaces button {
+    background-color: @widget-background;
+    padding: 0;
+    border-radius: 0.5em;
+    color: #eee;
+    margin-right: 0.25em;
+}
+
+#workspaces button:hover {
+    background-color: @button-hover;
+}
+
+#workspaces button.visible {
+    background-color: @button-active;
+}
+
+window {
+    background-color: transparent;
+}

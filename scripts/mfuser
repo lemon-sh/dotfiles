@@ -1,0 +1,2 @@
+#!/bin/sh
+doas mount -tvfat -ouid=$USER,gid=$USER $@
