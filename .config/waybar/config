@@ -35,8 +35,8 @@
         "format": "<span foreground=\"#e7ff89\"></span> {}%"
     },
     "temperature": {
-        // "thermal-zone": 2,
-        "hwmon-path": "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon2/temp1_input",
+        // for i in /sys/class/hwmon/hwmon*/temp*_input; do echo "$(<$(dirname $i)/name): $(cat ${i%_*}_label 2>/dev/null || echo $(basename ${i%_*})) $(readlink -f $i)"; done
+        "hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon3/temp1_input",
         "critical-threshold": 85,
         "format-critical": "<span foreground=\"#f00\"></span> {temperatureC}°C",
         "format": "<span foreground=\"#ff6b6d\"></span> {temperatureC}°C"
