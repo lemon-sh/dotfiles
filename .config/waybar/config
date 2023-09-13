@@ -24,8 +24,7 @@
     "clock": {
         // "timezone": "America/New_York",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": "<span foreground=\"#ffafd7\"></span> {:%H:%M}",
-        "format-alt": "{:%Y-%m-%d}"
+        "format": "<span foreground=\"#ffafd7\"></span> {:%H:%M   <span foreground=\"#a5dfff\"></span> %Y-%m-%d}"
     },
     "cpu": {
         "format": "<span foreground=\"#89ffcc\">✹</span> {usage}%",
