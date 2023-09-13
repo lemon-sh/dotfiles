@@ -57,14 +57,14 @@
     },
     "backlight": {
         // "device": "acpi_video1",
-        "format": "<span foreground=\"#89ffcc\">{icon}</span> {percent}%",
-        "format-icons": [
-            "🌕",
-            "🌖",
-            "🌗",
-            "🌘",
-            "🌑"
-        ]
+        "format": "<span foreground=\"#89ffcc\">🔮</span> {percent}%"
+        // "format-icons": [
+        //     "🌕",
+        //     "🌖",
+        //     "🌗",
+        //     "🌘",
+        //     "🌑"
+        // ]
     },
     "battery": {
         "states": {
