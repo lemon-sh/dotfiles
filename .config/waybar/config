@@ -56,7 +56,7 @@
     },
     "backlight": {
         // "device": "acpi_video1",
-        "format": "<span foreground=\"#89ffcc\">🔮</span> {percent}%"
+        "format": "<span foreground=\"#89ffcc\"></span> {percent}%"
         // "format-icons": [
         //     "🌕",
         //     "🌖",
