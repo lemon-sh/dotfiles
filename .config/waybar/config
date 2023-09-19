@@ -1,3 +1,4 @@
+// vim:ft=jsonc
 {
     "height": 30, // Waybar height (to be removed for auto height)
     "spacing": 4, // Gaps between modules (4px)
@@ -45,7 +46,12 @@
         "tooltip": false
     },
     "memory": {
-        "format": "<span foreground=\"#e1ffbf\"></span> {}%"
+        "format": "<span foreground=\"#ffd2aa\"></span> {}%",
+        "interval": 4
+    },
+    "disk": {
+        "format": "<span foreground=\"#daffaa\"></span> {free}",
+        "path": "/"
     },
     "temperature": {
         // for i in /sys/class/hwmon/hwmon*/temp*_input; do echo "$(<$(dirname $i)/name): $(cat ${i%_*}_label 2>/dev/null || echo $(basename ${i%_*})) $(readlink -f $i)"; done

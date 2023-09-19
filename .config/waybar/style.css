@@ -3,6 +3,7 @@
 @define-color widget-foreground #feebee;
 @define-color button-hover #7D3D52;
 @define-color button-active #8E4057;
+@define-color button-urgent #cc2859;
 
 * {
     font-family: "Cozette";
@@ -53,3 +54,8 @@
 window {
     background-color: transparent;
 }
+
+#workspaces button.urgent {
+    background-color: @button-urgent;
+}
+
