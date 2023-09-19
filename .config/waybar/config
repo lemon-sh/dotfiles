@@ -1,22 +1,9 @@
+// vim:ft=jsonc
 {
     "height": 30, // Waybar height (to be removed for auto height)
     "spacing": 4, // Gaps between modules (4px)
-    "modules-left": [
-        "sway/workspaces",
-        "sway/mode",
-        "sway/window"
-    ],
-    "modules-right": [
-        "pulseaudio",
-        "network",
-        "cpu",
-        "memory",
-        "temperature",
-        "backlight",
-        "battery",
-        "clock",
-        "tray"
-    ],
+    "modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
+    "modules-right": ["pulseaudio", "network", "cpu", "memory", "disk", "temperature", "backlight", "battery", "clock", "tray"],
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
@@ -41,29 +28,29 @@
         "format": "<span foreground=\"#ffafd7\"></span> {:%H:%M   <span foreground=\"#a5dfff\"></span> %Y-%m-%d}"
     },
     "cpu": {
-        "format": "<span foreground=\"#ffecbf\">✹</span> {usage}%",
-        "tooltip": false
+        "format": "<span foreground=\"#89ffcc\">✹</span> {usage}%",
+        "tooltip": false,
+        "interval": 4
     },
     "memory": {
-        "format": "<span foreground=\"#e1ffbf\"></span> {}%"
+        "format": "<span foreground=\"#ffd2aa\"></span> {}%",
+        "interval": 4
+    },
+    "disk": {
+        "format": "<span foreground=\"#daffaa\"></span> {free}",
+        "path": "/"
     },
     "temperature": {
-        // for i in /sys/class/hwmon/hwmon*/temp*_input; do echo "$(<$(dirname $i)/name): $(cat ${i%_*}_label 2>/dev/null || echo $(basename ${i%_*})) $(readlink -f $i)"; done
-        "hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon3/temp1_input",
+        // "thermal-zone": 2,
+        "hwmon-path": "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon2/temp1_input",
         "critical-threshold": 85,
         "format-critical": "<span foreground=\"#f00\"></span> {temperatureC}°C",
         "format": "<span foreground=\"#ff6b6d\"></span> {temperatureC}°C"
     },
     "backlight": {
         // "device": "acpi_video1",
-        "format": "<span foreground=\"#89ffcc\">🔮</span> {percent}%"
-        // "format-icons": [
-        //     "🌕",
-        //     "🌖",
-        //     "🌗",
-        //     "🌘",
-        //     "🌑"
-        // ]
+        "format": "{percent}% {icon}",
+        "format-icons": ["", "", "", "", "", "", "", "", ""]
     },
     "battery": {
         "states": {
@@ -71,23 +58,15 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{icon} {capacity}%",
-        "format-charging": "{icon} {capacity}% ",
-        // "format-plugged": "{capacity}% ",
-        "format-alt": "{icon} {time}",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
-        "format-icons": [
-            "<span foreground=\"#ff004e\"></span>",
-            "<span foreground=\"#f09700\"></span>",
-            "<span foreground=\"#b4da00\"></span>",
-            "<span foreground=\"#96ed3e\"></span>",
-            "<span foreground=\"#6bff6b\"></span>"
-        ]
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        "format-icons": ["", "", "", "", ""]
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "<span foreground=\"#99ff93\"></span> {essid} ({signalStrength}%)",
+        "format-wifi": " {essid} ({signalStrength}%)",
         "format-ethernet": "<span foreground=\"#89dbff\"></span> {ipaddr}/{cidr}",
         "tooltip-format": "{ifname} via {gwaddr}",
         "format-linked": "{ifname} (No IP)",
@@ -95,7 +74,6 @@
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
     "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
         "format": "<span foreground=\"#a1ff89\">{icon}</span> {volume}% {format_source}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": "{icon} {format_source}",
@@ -109,12 +87,9 @@
             "phone": "",
             "portable": "",
             "car": "",
-            "default": [
-                "",
-                "",
-                ""
-            ]
+            "default": ["", "", ""]
         },
         "on-click": "pavucontrol"
     }
 }
+
