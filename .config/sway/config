@@ -11,7 +11,7 @@ set $up k
 set $right l
 
 set $grimshot /usr/share/swayfx/scripts/grimshot
-set $term kitty
+set $term alacritty
 
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -40,6 +40,7 @@ output DP-2 mode 1920x1080@74.973Hz
 
 exec waybar
 exec dunst
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 ### Input configuration
 #
@@ -58,6 +59,10 @@ exec dunst
 input type:pointer {
     accel_profile flat
     pointer_accel -0.85
+}
+
+input type:tablet_tool {
+    map_to_output DP-1
 }
 
 input * {
@@ -205,18 +210,19 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-default_border none
+default_border pixel 1
 corner_radius 8
 shadows enable
-default_dim_inactive 0.2
+#default_dim_inactive 0.2
 
 gaps outer 15
 gaps inner 10
 
 # Colors
 
-#                        border  bg      text    indicat child
-#client.focused           $base0F $base0D $base00 $base0F $base0F
-#client.unfocused         $base01 $base00 $base05 $base01 $base01
+#                        border    bg      text    indicat   child
+client.focused           #ff6666   #342f35 #ff6666 #ff6666   #ff6666 
+client.unfocused         #00000000 #342f35 #342f35 #00000000 #00000000
+client.focused_inactive  #00000000 #342f35 #342f35 #00000000 #00000000
 
 include /etc/sway/config.d/*
